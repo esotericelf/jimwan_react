@@ -1,0 +1,20 @@
+.typing-effect {
+    color: #333;
+    /* Deep grey color for the entire text */
+}
+
+.glow {
+    animation: glowAnimation 1s ease-in-out forwards;
+}
+
+@keyframes glowAnimation {
+    0% {
+        font-size: larger;
+        text-shadow: 0 0 3px rgb(177, 201, 239), 0 0 6px rgb(177, 201, 239);
+    }
+
+    100% {
+        color: inherit;
+        text-shadow: none;
+    }
+}
