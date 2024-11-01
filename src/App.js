@@ -79,9 +79,9 @@ function Certification() {
       <ul>
         <li>IIQE - Paper I II III</li>
         <li>LE - paper I VII VIII</li>
-        <li><a href="https://www.credly.com/badges/7db6ff85-3e8a-425c-ab89-3e82c323ab81/public_url" target="_blank">PCAP - Certified Associate in Python Programming</a></li>
-        <li><a href="https://www.credly.com/badges/cc6e0f5d-2382-4613-9017-7ac52ce8636f/public_url" target="_blank">SAS Certified Associate Programming Fundamentals Using SAS 9.4</a></li>
-        <li><a href="https://www.credly.com/badges/9612a01e-4f6a-490e-9883-bd6f3e391692/public_url" target="_blank">SAS Certified Specialist Base Programming Using SAS 9.4 certificate</a></li>
+        <li><a href="https://www.credly.com/badges/7db6ff85-3e8a-425c-ab89-3e82c323ab81/public_url" target="_blank" rel="noreferrer">PCAP - Certified Associate in Python Programming</a></li>
+        <li><a href="https://www.credly.com/badges/cc6e0f5d-2382-4613-9017-7ac52ce8636f/public_url" target="_blank" rel="noreferrer">SAS Certified Associate Programming Fundamentals Using SAS 9.4</a></li>
+        <li><a href="https://www.credly.com/badges/9612a01e-4f6a-490e-9883-bd6f3e391692/public_url" target="_blank" rel="noreferrer">SAS Certified Specialist Base Programming Using SAS 9.4 certificate</a></li>
       </ul>
     </section>
   );
