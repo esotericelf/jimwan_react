@@ -7,7 +7,8 @@ import Modal from './effect/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
+import ExpandableText from './effect/ExpandableText';
+import { BOCHK, Beulah, DBS, Tutornotes } from './content/supplyinfo';
 
 function Header() {
   return (
@@ -63,10 +64,18 @@ function WorkExperience() {
     <section id="experiences">
       <h1>Work Experiences</h1>
       <ul>
-        <li>2024-present: DBS - Senior Officer (Licensed), Consumer Banking</li>
-        <li>2023-2024: BOCHK - CSO (Details)</li>
-        <li>2018-2023: Beulah (HK) Ltd. - Assistant Manager</li>
-        <li>2009-2018: Tutornotes - General Manager</li>
+        <ExpandableText items={DBS}>
+          <li>2024-present: DBS - Senior Officer (Licensed), Consumer Banking</li>
+        </ExpandableText>
+        <ExpandableText items={BOCHK}>
+          <li>2023-2024: BOCHK - CSO (Details)</li>
+        </ExpandableText>
+        <ExpandableText items={Beulah}>
+          <li>2018-2023: Beulah (HK) Ltd. - Assistant Manager</li>
+        </ExpandableText>
+        <ExpandableText items={Tutornotes}>
+          <li>2009-2018: Tutornotes - General Manager</li>
+        </ExpandableText>
       </ul>
     </section>
   );

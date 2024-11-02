@@ -30,11 +30,11 @@ function TypingEffect({ text, speed = 100, className = '', loop = false }) {
                 <span key={i}>
                     {word.slice(0, lastCharIndex)}
                     <span className="glow">{word[lastCharIndex]}</span>
-                    {' '}
+                    <span>&nbsp;</span> {/* Ensure space is rendered */}
                 </span>
             );
         }
-        return ' ';
+        return <span key={i}>&nbsp;</span>; // Render space for empty words
     });
 
     return <div className={`${className} typing-effect`}>{words}</div>;

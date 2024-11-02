@@ -1,10 +1,18 @@
 .typing-effect {
-    color: #333;
-    /* Deep grey color for the entire text */
+    height: 1.5em;
+    /* Set a fixed height, adjust as needed */
+    overflow: hidden;
+    /* Hide any overflow content */
+    display: flex;
+    align-items: center;
+    /* Center the text vertically */
 }
 
 .glow {
-    animation: glowAnimation 1s ease-in-out forwards;
+    color: rgba(0, 0, 0, 0.8);
+    /* Example glow color */
+    text-shadow: 0 0 5px rgba(206, 206, 206, 0.8);
+    /* Example glow effect */
 }
 
 @keyframes glowAnimation {

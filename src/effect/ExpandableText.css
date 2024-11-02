@@ -1,0 +1,65 @@
+.expandable-text-container {
+    position: relative;
+    /* Ensure the container is positioned */
+    z-index: 100;
+    /* High z-index to ensure it's on top */
+}
+
+.expandable-text-trigger {
+    cursor: pointer;
+}
+
+.expandable-text-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-out, padding 1s ease-out, margin-bottom 1s ease-out;
+    padding: 0 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    /* Initial margin-bottom */
+    border-radius: 4px;
+    border: none;
+    /* Remove the border */
+    position: relative;
+    /* Change to relative to push down stack */
+    z-index: 101;
+    /* Higher z-index to bring it to the front */
+    background-color: inherit;
+    /* Use inherited background color */
+}
+
+.expandable-text-box.expanded {
+    max-height: 1000px;
+    /* Large enough to ensure full expansion */
+    padding: 10px;
+    margin-bottom: 20px;
+    /* Add margin-bottom when expanded */
+}
+
+.expandable-text-box ul {
+    list-style: none;
+    /* Remove default list style */
+    padding-left: 0;
+    /* Remove default padding */
+    margin: 0;
+}
+
+.expandable-text-box li {
+    margin-bottom: 5px;
+    /* Space between list items */
+    color: #3c3c3c;
+    /* Text color for list items */
+    display: flex;
+    align-items: center;
+}
+
+.expandable-text-box li::before {
+    content: '✔';
+    /* Unicode character for a check mark */
+    color: #3c3c3c;
+    /* Color of the check mark */
+    margin-right: 10px;
+    /* Space between check mark and text */
+    font-size: 0.8em;
+    /* Adjust size as needed */
+}
