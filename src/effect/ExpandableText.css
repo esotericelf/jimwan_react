@@ -7,6 +7,16 @@
 
 .expandable-text-trigger {
     cursor: pointer;
+    /* Indicate clickability */
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.expandable-text-trigger:hover {
+    background-color: #e0e0e0;
+    /* Change background on hover */
+    color: #0077cc;
+    /* Change text color on hover */
 }
 
 .expandable-text-box {

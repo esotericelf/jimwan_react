@@ -2,49 +2,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import './ExpandableText.css';
 // ... existing imports ...
 
+// ... existing imports ...
+
 const ExpandableList = ({ items, children }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const collapseTimeoutRef = useRef(null);
 
-    const handleMouseEnter = () => {
-        if (collapseTimeoutRef.current) {
-            clearTimeout(collapseTimeoutRef.current);
-        }
-        setIsExpanded(true);
+    const handleToggle = () => {
+        setIsExpanded(prevState => !prevState); // Toggle expansion on click
     };
-
-    const handleMouseLeave = () => {
-        collapseTimeoutRef.current = setTimeout(() => {
-            setIsExpanded(false);
-        }, 100); // 0.1-second delay before collapsing
-    };
-
-    const handleClick = () => setIsExpanded(false); // Collapse on click
-
-    useEffect(() => {
-        return () => {
-            if (collapseTimeoutRef.current) {
-                clearTimeout(collapseTimeoutRef.current);
-            }
-        };
-    }, []);
 
     return (
-        <div
-            className="expandable-text-container"
-            onClick={handleClick} // Add onClick event to the outermost div
-        >
+        <div className="expandable-text-container">
             <div
                 className="expandable-text-trigger"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onClick={handleToggle} // Toggle on click
             >
                 {children}
             </div>
             <div
                 className={`expandable-text-box ${isExpanded ? 'expanded' : ''}`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
             >
                 <ul>
                     {items.map((item, index) => (
