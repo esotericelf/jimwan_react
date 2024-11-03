@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './ExpandableText.css';
+// ... existing imports ...
 
 const ExpandableList = ({ items, children }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -29,7 +30,10 @@ const ExpandableList = ({ items, children }) => {
     }, []);
 
     return (
-        <div className="expandable-text-container">
+        <div
+            className="expandable-text-container"
+            onClick={handleClick} // Add onClick event to the outermost div
+        >
             <div
                 className="expandable-text-trigger"
                 onMouseEnter={handleMouseEnter}
@@ -41,7 +45,6 @@ const ExpandableList = ({ items, children }) => {
                 className={`expandable-text-box ${isExpanded ? 'expanded' : ''}`}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onClick={handleClick} // Add onClick event
             >
                 <ul>
                     {items.map((item, index) => (
