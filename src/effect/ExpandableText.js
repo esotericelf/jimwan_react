@@ -1,8 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ExpandableText.css';
-// ... existing imports ...
 
-// ... existing imports ...
 
 const ExpandableList = ({ items, children }) => {
     const [isExpanded, setIsExpanded] = useState(false);
