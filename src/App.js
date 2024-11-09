@@ -65,7 +65,7 @@ function WorkExperience() {
       <h1>Work Experiences</h1>
       <ul>
         <ExpandableText items={DBS}>
-          <li>2024-present: DBS - Senior Officer (Licensed), Consumer Banking</li>
+          <li>2024-present: Senior Officer (Licensed), Consumer Banking</li>
         </ExpandableText>
         <ExpandableText items={BOCHK}>
           <li>2023-2024: BOCHK - CSO (Details)</li>
