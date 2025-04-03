@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ExpandableText from './effect/ExpandableText';
-import { BOCHK, Beulah, DBS, Tutornotes } from './content/supplyinfo';
+import { BOCHK, Beulah, DBS, Tutornotes, CTBC } from './content/supplyinfo';
 
 function Header() {
   return (
@@ -64,8 +64,11 @@ function WorkExperience() {
     <section id="experiences">
       <h1>Work Experiences</h1>
       <ul>
+        <ExpandableText items={CTBC}>
+          <li>2025-present: Senior Associate</li>
+        </ExpandableText>
         <ExpandableText items={DBS}>
-          <li>2024-present: Senior Officer (Licensed), Consumer Banking</li>
+          <li>2024-2025: Senior Officer (Licensed), Consumer Banking</li>
         </ExpandableText>
         <ExpandableText items={BOCHK}>
           <li>2023-2024: BOCHK - CSO (Details)</li>

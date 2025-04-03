@@ -29,3 +29,11 @@ export const Tutornotes = [
     "Developed a YouTube tutorial channel and website for AdSense profit and promotional goals",
     "Acheivement: Reached 2k subscribers with organic traffic which acheive a high degree of success in cost effective promotion"
 ]
+
+
+export const CTBC = [
+    "Handle customers' enquires via phone calls and emails including addressing problems with electronic banking and follow up on the transaction;",
+    "Ensure the application forms submitted by customers are duly completed and delivered to relevant departments promptly;",
+    "Follow up on VIP clients’ transaction requests until transactions are completed;",
+    "Handle ad-hoc projects as assigned by Management."
+]
