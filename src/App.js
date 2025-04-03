@@ -68,7 +68,7 @@ function WorkExperience() {
           <li>2025-present: Senior Associate</li>
         </ExpandableText>
         <ExpandableText items={DBS}>
-          <li>2024-2025: Senior Officer (Licensed), Consumer Banking</li>
+          <li>2024-2025: DBS - Senior Officer (Licensed), Consumer Banking</li>
         </ExpandableText>
         <ExpandableText items={BOCHK}>
           <li>2023-2024: BOCHK - CSO (Details)</li>
