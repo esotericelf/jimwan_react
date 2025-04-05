@@ -130,7 +130,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <a href="www.linkedin.com/in/jim-wan-4267532b7" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/jim-wan-4267532b7" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faLinkedin} /> LinkedIn Profile
         </a>
         <span> | </span>
