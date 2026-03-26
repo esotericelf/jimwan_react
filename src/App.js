@@ -1,18 +1,28 @@
 // src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import TypingEffect from './effect/TypingEffect';
 import profileImage from './img/jimwan.jpg';
 import Modal from './effect/Modal';
+import ExperienceLightbox from './effect/ExperienceLightbox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import ExpandableText from './effect/ExpandableText';
-import { BOCHK, Beulah, DBS, Tutornotes, CTBC } from './content/supplyinfo';
+import { WORK_EXPERIENCE_TILES } from './content/workExperience';
+import { CERTIFICATION_TILES } from './content/certification';
+import { EDUCATION_TILES } from './content/education';
+
+const SKILL_TILES = [
+  { title: 'Language', text: '中文母語, Proficient in English, 普通话, Lire le français de base' },
+  { title: 'Web Technology', text: 'React / Firebase / Python' },
+  { title: 'Database', text: 'SAS / Tableau' },
+  { title: 'Machine Learning & AI', text: 'Understanding machine learning concepts and AI applications' },
+  { title: 'Office', text: 'Extreme Proficient in Excel, Type speed: 60 wpm (Both Chinese and English)' },
+];
 
 function Header() {
   return (
-    <header>
+    <header className="site-header">
       <div className="profile-block">
         <img src={profileImage} alt="Jim Wan" className="profile-icon" />
         <div className="profile-details">
@@ -33,7 +43,7 @@ function Navigation() {
   };
 
   return (
-    <nav className="main-nav">
+    <nav className="main-nav site-nav">
       <ul>
         <li className="active"><a href="#about" onClick={() => handleScroll('about')}>About</a></li>
         <li><a href="#experiences" onClick={() => handleScroll('experiences')}>Experiences</a></li>
@@ -48,9 +58,9 @@ function Navigation() {
 function Introduction() {
 
   return (
-    <section id="about">
+    <section id="about" className="content-section">
       <div>
-        <h1>Who am I?</h1>
+        <h1 className="section-heading">Who am I?</h1>
         <Modal content="This is how fast I type. People with effieiciency mindset value time">
           <TypingEffect text="This is Jim Wan. Jim has a passion in data and finance." speed={30} className='quote' loop={true} />
         </Modal >
@@ -60,67 +70,122 @@ function Introduction() {
 }
 
 function WorkExperience() {
+  const [openId, setOpenId] = useState(null);
+  const active = WORK_EXPERIENCE_TILES.find((t) => t.id === openId);
+
   return (
-    <section id="experiences">
-      <h1>Work Experiences</h1>
-      <ul>
-        <ExpandableText items={CTBC}>
-          <li>2025-present: Senior Associate</li>
-        </ExpandableText>
-        <ExpandableText items={DBS}>
-          <li>2024-2025: DBS - Senior Officer (Licensed), Consumer Banking</li>
-        </ExpandableText>
-        <ExpandableText items={BOCHK}>
-          <li>2023-2024: BOCHK - CSO (Details)</li>
-        </ExpandableText>
-        <ExpandableText items={Beulah}>
-          <li>2018-2023: Beulah (HK) Ltd. - Assistant Manager</li>
-        </ExpandableText>
-        <ExpandableText items={Tutornotes}>
-          <li>2009-2018: Tutornotes - General Manager</li>
-        </ExpandableText>
+    <section id="experiences" className="content-section experience-section">
+      <h1 className="section-heading">Work Experiences</h1>
+      <ul className="tilesWrap">
+        {WORK_EXPERIENCE_TILES.map((tile) => (
+          <li key={tile.id}>
+            <h3>{tile.title}</h3>
+            <p className="tile-meta">{tile.period} · {tile.role}</p>
+            <p className="tile-teaser">{tile.teaser}</p>
+            <button
+              type="button"
+              className="tile-readmore-btn"
+              onClick={() => setOpenId(tile.id)}
+            >
+              Read more
+            </button>
+          </li>
+        ))}
       </ul>
+      <ExperienceLightbox
+        isOpen={Boolean(active)}
+        onClose={() => setOpenId(null)}
+        title={active?.title ?? ''}
+        period={active?.period ?? ''}
+        role={active?.role ?? ''}
+        items={active?.items ?? []}
+      />
     </section>
   );
 }
 
 function Certification() {
+  const [openId, setOpenId] = useState(null);
+  const active = CERTIFICATION_TILES.find((t) => t.id === openId);
+
   return (
-    <section id="cert">
-      <h1>Certification</h1>
-      <ul>
-        <li>IIQE - Paper I II III</li>
-        <li>LE - paper I VII VIII</li>
-        <li><a href="https://www.credly.com/badges/7db6ff85-3e8a-425c-ab89-3e82c323ab81/public_url" target="_blank" rel="noreferrer">PCAP - Certified Associate in Python Programming</a></li>
-        <li><a href="https://www.credly.com/badges/cc6e0f5d-2382-4613-9017-7ac52ce8636f/public_url" target="_blank" rel="noreferrer">SAS Certified Associate Programming Fundamentals Using SAS 9.4</a></li>
-        <li><a href="https://www.credly.com/badges/9612a01e-4f6a-490e-9883-bd6f3e391692/public_url" target="_blank" rel="noreferrer">SAS Certified Specialist Base Programming Using SAS 9.4 certificate</a></li>
+    <section id="cert" className="content-section certification-section">
+      <h1 className="section-heading">Certification</h1>
+      <ul className="tilesWrap">
+        {CERTIFICATION_TILES.map((tile) => (
+          <li key={tile.id}>
+            <h3>{tile.title}</h3>
+            <p className="tile-meta">{tile.metaLine}</p>
+            <p className="tile-teaser">{tile.teaser}</p>
+            <button
+              type="button"
+              className="tile-readmore-btn"
+              onClick={() => setOpenId(tile.id)}
+            >
+              Read more
+            </button>
+          </li>
+        ))}
       </ul>
+      <ExperienceLightbox
+        isOpen={Boolean(active)}
+        onClose={() => setOpenId(null)}
+        title={active?.title ?? ''}
+        metaLine={active?.metaLine}
+        items={active?.items ?? []}
+        externalUrl={active?.externalUrl}
+        externalLabel={active?.externalLabel}
+      />
     </section>
   );
 }
 
 function Skills() {
   return (
-    <section id="skills">
-      <h1>Skills</h1>
-      <ul>
-        <li>Language: 中文母語, Proficient in English, 普通话, Lire le français de base</li>
-        <li>Web Technology: React/ Firebase/Python</li>
-        <li>Database: Sas/ Tableau</li>
-        <li>Office: Extreme Proficient in Excel, Type speed: 60 wpm (Both Chinese and English)</li>
+    <section id="skills" className="content-section skills-section">
+      <h1 className="section-heading">Skills</h1>
+      <ul className="tilesWrap">
+        {SKILL_TILES.map((tile) => (
+          <li key={tile.title}>
+            <h3>{tile.title}</h3>
+            <p>{tile.text}</p>
+          </li>
+        ))}
       </ul>
     </section>
   );
 }
 
 function Education() {
+  const [openId, setOpenId] = useState(null);
+  const active = EDUCATION_TILES.find((t) => t.id === openId);
+
   return (
-    <section id="Education">
-      <h1>Education</h1>
-      <ul>
-        <li>HKU BSc(Hons) (2004)</li>
-        <li>HKBU MA (2009)</li>
+    <section id="Education" className="content-section education-section">
+      <h1 className="section-heading">Education</h1>
+      <ul className="tilesWrap">
+        {EDUCATION_TILES.map((tile) => (
+          <li key={tile.id}>
+            <h3>{tile.title}</h3>
+            <p className="tile-meta">{tile.metaLine}</p>
+            <p className="tile-teaser">{tile.teaser}</p>
+            <button
+              type="button"
+              className="tile-readmore-btn"
+              onClick={() => setOpenId(tile.id)}
+            >
+              Read more
+            </button>
+          </li>
+        ))}
       </ul>
+      <ExperienceLightbox
+        isOpen={Boolean(active)}
+        onClose={() => setOpenId(null)}
+        title={active?.title ?? ''}
+        metaLine={active?.metaLine}
+        items={active?.items ?? []}
+      />
     </section>
   );
 }

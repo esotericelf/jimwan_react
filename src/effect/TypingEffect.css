@@ -9,10 +9,8 @@
 }
 
 .glow {
-    color: rgba(0, 0, 0, 0.8);
-    /* Example glow color */
-    text-shadow: 0 0 5px rgba(206, 206, 206, 0.8);
-    /* Example glow effect */
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 8px rgba(126, 184, 218, 0.45);
 }
 
 @keyframes glowAnimation {

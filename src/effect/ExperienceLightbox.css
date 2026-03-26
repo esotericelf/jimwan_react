@@ -1,0 +1,107 @@
+.experience-lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    animation: experience-lb-fade-in 0.2s ease;
+}
+
+@keyframes experience-lb-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.experience-lightbox-panel {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    max-height: min(85vh, 640px);
+    overflow: auto;
+    background: #f4f6f8;
+    color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+    padding: 28px 28px 24px;
+    text-align: left;
+    border: 1px solid #e2e6ea;
+}
+
+.experience-lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: #5a5a5a;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.experience-lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: #111;
+}
+
+.experience-lightbox-heading {
+    margin: 0 40px 8px 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.experience-lightbox-meta {
+    margin: 0 0 18px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.experience-lightbox-list {
+    margin: 0;
+    padding-left: 1.15rem;
+    list-style: disc;
+}
+
+.experience-lightbox-list li {
+    margin-bottom: 10px;
+    line-height: 1.45;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.experience-lightbox-list li:last-child {
+    margin-bottom: 0;
+}
+
+.experience-lightbox-external {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a4d7a;
+    background: #e8f0f8;
+    border: 1px solid #c5d8eb;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.experience-lightbox-external:hover {
+    background: #d4e4f4;
+    border-color: #a8c4de;
+    text-decoration: none;
+}
